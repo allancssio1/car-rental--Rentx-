@@ -9,7 +9,7 @@ class CategoriesRepository {
   private categories: Category[]
 
   constructor() {
-    this.categories = []    
+    this.categories = []
   }
 
   create({ name, description }: ICreateCategoryDTO) : void {
