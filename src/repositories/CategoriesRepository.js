@@ -18,5 +18,11 @@ class CategoriesRepository {
     list() {
         return this.categories;
     }
+    findByName(name) {
+        console.log('veio aqui');
+        const category = this.categories.find(category => category.name === name);
+        console.log(category);
+        return category;
+    }
 }
 exports.CategoriesRepository = CategoriesRepository;
