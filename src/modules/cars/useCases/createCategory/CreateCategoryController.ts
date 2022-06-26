@@ -8,7 +8,7 @@ class CreateCategoryController {
     const { name, description } = request.body
 
     this.createCategoryUserCase.execute({name, description})
-    console.log('mnauuuuu')
+
     return response.status(201).send("inserido")
   }
 }
