@@ -1,4 +1,4 @@
-import { v4 as uuid} from 'uuid'
+import { v4 as uuid } from 'uuid';
 class Category {
   id?: string;
   name: string;
@@ -6,8 +6,8 @@ class Category {
   created_at: Date;
 
   constructor() {
-    if(!this.id) this.id = uuid()
+    if (!this.id) this.id = uuid();
   }
 }
 
-export {Category}
+export { Category };

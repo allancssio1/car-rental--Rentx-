@@ -1,4 +1,4 @@
-import { v4 as uuid} from 'uuid'
+import { v4 as uuid } from 'uuid';
 
 class Specification {
   id?: string;
@@ -7,8 +7,8 @@ class Specification {
   created_at: Date;
 
   constructor() {
-    if(!this.id) this.id = uuid()
+    if (!this.id) this.id = uuid();
   }
 }
 
-export {Specification}
+export { Specification };
