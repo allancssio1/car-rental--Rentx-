@@ -4,5 +4,8 @@
   "host": "localhost",
   "username": "docker",
   "password": "ignite",
-  "database": "car_rental"
+  "database": "car_rental",
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
 }
