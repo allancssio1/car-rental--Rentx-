@@ -1,3 +1,4 @@
+import { getRepository, Repository } from "typeorm";
 import { Category } from "../../entities/Category";
 import {
   ICategoriesRepository,
@@ -5,12 +6,12 @@ import {
 } from "../ICategoriesRepository";
 
 class CategoriesRepository implements ICategoriesRepository {
-  private categories: Category[];
+  private repository: Repository<Category>;
 
   private static INSTANCE: CategoriesRepository;
 
   private constructor() {
-    this.categories = [];
+    this.repository = getRepository(Category);
   }
 
   public static getInstance(): CategoriesRepository {
