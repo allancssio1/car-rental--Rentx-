@@ -11,6 +11,7 @@ const upload = multer({
 const categoriesRoutes = Router();
 // Criação de categories.
 const createCategoryController = new CreateCategoryController();
+
 categoriesRoutes.post("/", createCategoryController.handle);
 // listagem das categorias;
 categoriesRoutes.get("/", (request, response) =>
