@@ -5,10 +5,11 @@ import { CreateCategoryController } from "../modules/cars/useCases/createCategor
 import importCategoryController from "../modules/cars/useCases/importCategory";
 import listCategoriesController from "../modules/cars/useCases/listCategories";
 
+const categoriesRoutes = Router();
+
 const upload = multer({
   dest: "./tmp",
 });
-const categoriesRoutes = Router();
 // Criação de categories.
 const createCategoryController = new CreateCategoryController();
 
