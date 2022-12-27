@@ -4,9 +4,10 @@ import { ImportCategoryUseCase } from "./ImportCategoryUseCase";
 
 class ImportCategoryController {
   async handle(request: Request, response: Response): Promise<Response> {
+    console.log("🚀 ~ file: ImportCategoryController ok");
     const { file } = request;
     const importCategoryUseCase = container.resolve(ImportCategoryUseCase);
-    importCategoryUseCase.execute(file);
+    await importCategoryUseCase.execute(file);
     return response.send("arquivo cadastrado");
   }
 }
