@@ -45,7 +45,7 @@
         }
       },
       "get": {
-        "tag": ["Category"],
+        "tags": ["Category"],
         "summary": "List all categories",
         "description": "List all categories",
         "responses": {
@@ -60,10 +60,10 @@
                     "properties": {
                       "name": {
                         "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
                       }
-                    },
-                    "description": {
-                      "type": "string"
                     }
                   }
                 }
@@ -71,6 +71,46 @@
             }
           }
         }
+      }
+    },
+    "/categories/import": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Upload a new category by file.",
+        "description": "Upload a new category by file"
+      }
+    },
+    "/specifications": {
+      "post": {
+        "tags": ["Specifications"],
+        "summary": "Create specification",
+        "description": "Create a new specification",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Specification"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Specification already exists!"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Specification": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" }
       }
     }
   }
