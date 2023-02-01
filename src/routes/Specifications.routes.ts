@@ -6,8 +6,7 @@ const specificationsRoutes = Router();
 
 const createSpecificationController = new CreateSpecificationController();
 
-// specificationsRoutes.use(ensuerAuth);
-console.log("rotas");
+specificationsRoutes.use(ensuerAuth);
 specificationsRoutes.post("/", createSpecificationController.handle);
 
 export { specificationsRoutes };

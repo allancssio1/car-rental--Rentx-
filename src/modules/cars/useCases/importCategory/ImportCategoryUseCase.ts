@@ -29,15 +29,7 @@ class ImportCategoryUseCase {
 
       parseFile
         .on("data", async (line) => {
-          console.log(
-            "🚀 ~ file: ImportCategoryUseCase.ts:32 ~ ImportCategoryUseCase ~ .on ~ line",
-            line,
-          );
           const [name, description] = line;
-          console.log(
-            "🚀 ~ file: ImportCategoryUseCase.ts:33 ~ ImportCategoryUseCase ~ .on ~ name",
-            name,
-          );
 
           categories.push({
             name: name,

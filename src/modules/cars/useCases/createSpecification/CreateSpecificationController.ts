@@ -5,8 +5,6 @@ import { CreateSpecificationUseCase } from "./CreateSpecificationUseCase";
 class CreateSpecificationController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { name, description } = request.body;
-    console.log("🚀 ~ description", description);
-    console.log("🚀 ~ name", name);
 
     const createSpecificationUseCase = container.resolve(
       CreateSpecificationUseCase,

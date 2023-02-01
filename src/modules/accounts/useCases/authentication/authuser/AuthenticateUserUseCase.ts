@@ -1,6 +1,7 @@
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
+import { AppErrors } from "../../../../../errors/AppErrors";
 import { IUsersRepository } from "../../../repositories/IUsersRepository";
 
 interface IRequest {
@@ -19,18 +20,18 @@ interface IResponse {
 @injectable()
 export class AuthenticateUserUseCase {
   constructor(
-    @inject("UserRepository")
+    @inject("UsersRepository")
     private userRepository: IUsersRepository,
   ) {}
 
   async execute({ email, password }: IRequest): Promise<IResponse> {
     const user = await this.userRepository.findByEmail(email);
 
-    if (!user) throw new Error("Email or passward incorrect");
+    if (!user) throw new AppErrors("Email or passward incorrect", 404);
 
     const passwardMatch = compare(password, user.password);
 
-    if (!passwardMatch) throw new Error("Email or passward incorrect");
+    if (!passwardMatch) throw new AppErrors("Email or passward incorrect", 404);
 
     // o primeira opção podem ser dados do cliente, mas nunca a senha.
     // o segundo é o hashMD5 para deração do token. pesquisar em um site para gerar um aleatório
