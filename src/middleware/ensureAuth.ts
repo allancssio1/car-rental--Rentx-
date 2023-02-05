@@ -29,6 +29,10 @@ export async function ensuerAuth(
 
     if (!user) throw new AppErrors("User does not exists!", 401);
 
+    request.user = {
+      id: user_id,
+    };
+
     next();
   } catch (error) {
     throw new AppErrors("Token invalid", 401);
