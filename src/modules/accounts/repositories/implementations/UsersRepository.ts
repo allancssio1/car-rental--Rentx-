@@ -23,6 +23,7 @@ export class UsersRepository implements IUsersRepository {
       email,
       driver_license,
       password,
+      avatar,
     });
 
     await this.repository.save(user);
